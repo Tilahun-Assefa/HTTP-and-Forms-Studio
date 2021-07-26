@@ -1,0 +1,54 @@
+body {
+  align-items: center;  
+  display: flex;
+  justify-content: center;  
+}
+
+.form {
+    background-color: #a6a9c6;
+    border-radius: 20px;
+    box-sizing: border-box;    
+    padding: 20px;
+    width: 320px;
+  }
+  
+  input[type="radio"] + label {
+    position: relative;
+    display: inline-block;
+    padding: 0 0 0 40px;
+    background: #fff;
+    border: none;
+    border-radius: 5px;    
+  } 
+
+  .input {
+    background-color: #dbddec;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: rgb(10, 9, 9);
+    font-size: 18px;
+    height: 100%;
+    outline: 0;
+    padding: 4px 20px 0;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .submit {
+    background-color: #08d;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    cursor: pointer;
+    font-size: 18px;
+    height: 40px;
+    margin-top: 20px;   
+    text-align: center;
+    width: 100%;
+  }
+  
+  .submit:active {
+    background-color: #06b;
+  }

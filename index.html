@@ -2,18 +2,60 @@
 
 <head>
 	<meta charset="utf-8">
+	<link rel="stylesheet" href="styles.css" />
 	<script>
 		// TODO: create a handler
-    window.addEventListener("load", function(){
-        // TODO: register the handler
-    });
+		function setSearchEngine() {
+			let engine = document.querySelector("input[name=engine]:checked");
+			let form = document.querySelector("form");
+			let searchParam = document.querySelector("input[name=q]");
+			let searchEngine = document.querySelectorAll("input[name = engine]")
+
+			let engine_checked = false;
+			searchEngine.forEach(elem => {
+				if (elem instanceof HTMLInputElement && elem.checked === true) {
+					engine_checked = true;
+				}
+			});
+			if (searchParam.value === "" || engine_checked === false) {
+				window.alert("You should fill the search key and select the engine");
+				window.event.preventDefault();
+			} else {
+				let actionURL;
+				let actions = {
+					"google": "https://www.google.com/search",
+					"duckDuckGo": "https://ducksduckgo.com/",
+					"bing": "https://www.bing.com/search",
+					"ask": "https://www.ask.com/web"
+				}
+				actionURL = actions[engine.value];
+				form.setAttribute("action", actionURL);
+			}
+		}
+
+		window.addEventListener("load", function () {
+			// TODO: register the handler
+			let form = document.querySelector("form");
+			form.addEventListener("submit", setSearchEngine);
+			// fetch("https://handlers.education.launchcode.org/static/weather.json").then(function (response) {
+			// 	response.json().then(function (json) { console.log(json) });
+			// });
+		});
 	</script>
 </head>
 
 <body>
 
-	<form id="searchForm">
-    <!-- TODO: add form elements -->
+	<form id="searchForm" class="form">
+		<!-- TODO: add form elements -->
+		<input type="text" name="q" class="input" />
+		<fieldset>
+			<label><input type="radio" name="engine" value="google" />Google</label>
+			<label><input type="radio" name="engine" value="duckDuckGo" />DuckDuckGo</label>
+			<label><input type="radio" name="engine" value="bing" />Bing</label>
+			<label><input type="radio" name="engine" value="ask" />Ask</label>
+		</fieldset>
+		<input type="submit" value="Go!" class="submit"/>
 	</form>
 
 </body>
